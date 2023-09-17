@@ -14,6 +14,8 @@ class TestPanel(bpy.types.Panel):
         row.label(text="Add an object", icon='CUBE')
         row = layout.row()
         row.operator("mesh.primitive_plane_add")
+        row = layout.row()
+        row.operator("object.text_add")
     
 def register():
     bpy.utils.register_class(TestPanel)
