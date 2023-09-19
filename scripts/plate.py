@@ -1,3 +1,5 @@
+# Copiando text para uma placa pre moldada:
+
 import bpy
 
 def create_black_material():
