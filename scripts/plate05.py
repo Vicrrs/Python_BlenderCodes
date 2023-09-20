@@ -1,5 +1,45 @@
 import bpy
+import numpy as np
+import random
+import math
 # Hierarquia
+
+def delete_letters(parentName):
+    def getChildren(parent_name: str):
+        objs = bpy.data.objects[:]
+        parent_obj = bpy.data.objects.get(parentName)
+        if not parent_obj:
+            print(f"Parent object '{parentName}' not found.")
+            return []
+        return [ob for ob in objs if ob.parent == parent_obj and ob.name != 'Plane']    
+    bpy.ops.object.select_all(action='DESELECT')
+    obj_r = getChildren(parent_name=parentName)    
+    for obj in obj_r:
+        bpy.data.objects[obj.name].select_set(True)    
+    bpy.ops.object.delete()
+
+
+def move_plate_and_letters(obj_plate):
+    def random_position_for_plate():
+        x_limit = 0.2
+        y_limit = 0.05
+        z_limit = 0.5
+        x = random.uniform(-x_limit, x_limit)
+        y = random.uniform(-y_limit, y_limit)
+        z = random.uniform(0, z_limit)
+        return (x, y, z)
+    
+    delete_letters("Placa")  # Deleta letras existentes
+
+    # Move a Placa para uma posição aleatória
+    placa = bpy.data.objects.get("Placa")
+    if placa:
+        placa.location = random_position_for_plate()
+
+    letras = "ABC-1234"
+    arrange_on_plate(letras)
+
+
 def create_black_material():
     mat = bpy.data.materials.new(name="BlackMaterial")
     mat.diffuse_color = (0, 0, 0, 1)
