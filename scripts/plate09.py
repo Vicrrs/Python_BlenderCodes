@@ -36,7 +36,7 @@ def rename_plate(letters: str):
         placa.select_set(True)
         bpy.context.view_layer.objects.active = placa
         bpy.ops.object.parent_set()
-        x = x + 0.046
+        x = x + 0.04
 
     placa.rotation_euler[0] = 1.5708
     bpy.ops.object.select_all(action='DESELECT')
@@ -164,5 +164,5 @@ if __name__=="__main__":
     letras_placa= 'ABC-1234'
     obj_all, plate=rename_plate(letras_placa)
     move_plate(plate)
-    render_image(Path(f'/CILIA/blender/images/{letras_placa}'))
+    render_image(Path(f'/home/blender/images/{letras_placa}'))
     
