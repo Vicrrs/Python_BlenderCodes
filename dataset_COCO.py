@@ -271,12 +271,13 @@ if __name__=="__main__":
             annotations.append((obj.name, bbox))
     
         # Salve as anotações COCO em um arquivo.
-        save_coco_annotations_to_json(f'/home/vicrrs/Documentos/CILIA/placas/images_plates/ann/{letras_placa}_coco.json', annotations)
+        save_coco_annotations_to_json(f'E:\\CILIA\\placas\\Placa_antigas\\images_plates\\ann\\{letras_placa}_coco.json', annotations)
         
         pos_camera = move_plate(plate)
-        render_image(Path(f'/home/vicrrs/Documentos/CILIA/placas/images_plates/{letras_placa}'))
+        render_image(Path(f'E:\\CILIA\\placas\\Placa_antigas\\images_plates\\{letras_placa}'))
             
-        path_txt = f'/home/vicrrs/Documentos/CILIA/placas/images_plates/ann/{letras_placa}.txt'
+        path_txt = f'E:\\CILIA\\placas\\Placa_antigas\\images_plates\\ann\\{letras_placa}.txt'
         save_image_points = True 
-        path_save_image_points = f"/home/vicrrs/Documentos/CILIA/placas/img/{letras_placa}.jpg"
+        path_save_image_points = f"E:\\CILIA\\placas\\Placa_antigas\\images_plates\\img\\{letras_placa}.jpg"
         get_points(path_txt, save_image_points, path_save_image_points)
+        
