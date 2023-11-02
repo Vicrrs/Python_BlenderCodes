@@ -25,14 +25,18 @@ def visualize_bbox(image_path, annotations):
     for ann in annotations:
         obj_name, bbox = ann
         x, y, w, h = map(int, bbox)
+        h = abs(h)  # Use the absolute value for height
+        y = y - h   # Adjust the y origin
         rect = patches.Rectangle((x, y), w, h, linewidth=2, edgecolor='g', facecolor='none')
         ax.add_patch(rect)
         plt.text(x, y, obj_name, bbox=dict(facecolor='green', alpha=0.5), color='white')
 
     plt.show()
 
+
+
 # Example of usage:
-json_file_path = "/home/vicrrs/Documentos/CILIA/placas/images_plates/ann/GJD9358_coco.json"
+json_file_path = r"E:\CILIA\placas\Placa_antigas\images_plates\ann\LUF8794_coco.json"
 annotations = load_annotations(json_file_path)
-image_path = "/home/vicrrs/Documentos/CILIA/placas/images_plates/GJD9358.jpg"  # Change this to the path of your actual image
+image_path = r"E:\CILIA\placas\Placa_antigas\images_plates\LUF8794.png"  # Change this to the path of your actual image
 visualize_bbox(image_path, annotations)
