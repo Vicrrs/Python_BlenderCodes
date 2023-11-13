@@ -25,5 +25,4 @@ def install_package_in_blender_snap(package_name):
     except Exception as e:
         print(f"Erro: {e}")
 
-# Exemplo de uso
 install_package_in_blender_snap("bpycv")
