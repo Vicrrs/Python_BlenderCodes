@@ -69,6 +69,6 @@ if __name__ == '__main__':
     posicao_z_cortador = -1
     escala_x_cortador, escala_y_cortador, escala_z_cortador = 10, 10, 1.1
 
-    ajustar_objeto(nome_do_objeto, angulo_x, angulo_y)
+    ajustar_objeto(nome_do_objeto, angulo_x, angulo_y, angulo_z)
     selecionar_vertices_dentro_da_circunferencia(nome_do_objeto, cx, cy, raio)
     cortar_objeto(nome_do_objeto, posicao_z_cortador, escala_x_cortador, escala_y_cortador, escala_z_cortador)
